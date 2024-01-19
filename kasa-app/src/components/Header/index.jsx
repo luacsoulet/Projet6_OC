@@ -1,17 +1,15 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Logo from '../../assets/nav-logo.png'
+import Logo from '../../assets/nav-logo.svg'
 
-const HomeLogo = styled.img`
-  height: 210px;
-`
+const HomeLogo = styled.img``
 
 const NavContainer = styled.nav`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 720px
-    margin: 45px 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 720px;
+  margin: 45px 0 50px;
 `
 function Header() {
   return (
