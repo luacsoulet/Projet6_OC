@@ -1,15 +1,10 @@
-/* FONT FAMILIES */
-/* Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap')
-
-
-
 /* Header nav */
 .nav
   display: flex
-  justify-content: center
+  justify-content: space-between
   align-items: center
-  width: 1440px
+  height: 68px
+  width: 1240px
   gap: 720px
   margin: 45px 0 50px
   @media (max-width: 375px) 
@@ -20,23 +15,26 @@
     img 
       height: 47px
 
+  /* Header Div Links */
+  &__links
+    display: flex
+    gap: 27px
+    @media (max-width: 375px)
+      gap: 10px
+      
   /* Header Link */ 
   &__link 
-    margin: 27px
     width: 120px
     height: auto
     text-decoration: none
     color: #ff6060
     font-size: 24px
     font-family: 'Montserrat'
-    &:nth-child(2)
-      margin-left: 26px
     &.active 
       text-decoration: #ff6060 underline
     
     @media (max-width: 375px) 
       width: 60px
       font-size: 12px
-      margin: 0px 
 
 
