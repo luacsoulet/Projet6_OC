@@ -1,0 +1,40 @@
+/* FONT FAMILIES */
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap')
+
+
+
+/* Header nav */
+.navContainer 
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 1440px
+  gap: 720px
+  margin: 45px 0 50px
+  @media (max-width: 375px) 
+    width: 335px
+    margin: 20px 0 27px
+    gap: 43px
+
+    img 
+      height: 47px
+
+/* Header Link */
+.styledNavLink 
+  margin: 27px
+  width: 120px
+  height: auto
+  text-decoration: none
+  color: #ff6060
+  font-size: 24px
+  font-family: 'Montserrat'
+  &.active 
+    text-decoration: #ff6060 underline
+  
+  @media (max-width: 375px) 
+    width: 66px
+    font-size: 12px
+    margin: 0px 26px 0 0
+    gap: 0
+

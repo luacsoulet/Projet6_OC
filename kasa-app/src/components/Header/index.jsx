@@ -1,27 +1,22 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import '../../styles/_header.sass'
 import Logo from '../../assets/nav-logo.svg'
 
-const HomeLogo = styled.img``
-
-const NavContainer = styled.nav`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 720px;
-  margin: 45px 0 50px;
-`
 function Header() {
   return (
-    <NavContainer>
-      <Link to="/">
-        <HomeLogo src={Logo} />
-      </Link>
+    <div className="navContainer">
+      <NavLink to="/">
+        <img src={Logo} alt="Logo Kasa" />
+      </NavLink>
       <div>
-        <Link to="/">Accueil</Link>
-        <Link to="/about">A Propos</Link>
+        <NavLink className="styledNavLink" to="/">
+          Accueil
+        </NavLink>
+        <NavLink className="styledNavLink" to="/about">
+          A Propos
+        </NavLink>
       </div>
-    </NavContainer>
+    </div>
   )
 }
 
