@@ -5,7 +5,7 @@
 
 
 /* Header nav */
-.navContainer 
+.nav
   display: flex
   justify-content: center
   align-items: center
@@ -20,21 +20,23 @@
     img 
       height: 47px
 
-/* Header Link */
-.styledNavLink 
-  margin: 27px
-  width: 120px
-  height: auto
-  text-decoration: none
-  color: #ff6060
-  font-size: 24px
-  font-family: 'Montserrat'
-  &.active 
-    text-decoration: #ff6060 underline
-  
-  @media (max-width: 375px) 
-    width: 66px
-    font-size: 12px
-    margin: 0px 26px 0 0
-    gap: 0
+  /* Header Link */ 
+  &__link 
+    margin: 27px
+    width: 120px
+    height: auto
+    text-decoration: none
+    color: #ff6060
+    font-size: 24px
+    font-family: 'Montserrat'
+    &:nth-child(2)
+      margin-left: 26px
+    &.active 
+      text-decoration: #ff6060 underline
+    
+    @media (max-width: 375px) 
+      width: 60px
+      font-size: 12px
+      margin: 0px 
+
 
