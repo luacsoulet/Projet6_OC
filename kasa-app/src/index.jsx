@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import Error from '/pages/Error'
+import Error from './pages/Error'
 import Header from './components/Header'
 import './styles/_globaleStyle.sass'
 
