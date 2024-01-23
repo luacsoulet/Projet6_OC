@@ -12,7 +12,12 @@ function Home() {
       </div>
       <div className="home__gallery">
         {KasaData.map((element) => (
-          <Card label={element.title} cover={element.cover} id={element.id} />
+          <Card
+            key={`offer-${element.id}}`}
+            label={element.title}
+            cover={element.cover}
+            id={element.id}
+          />
         ))}
       </div>
     </div>
