@@ -1,0 +1,90 @@
+$round-btn: 0px 0px 5px 5px
+$content-padding: 16px 20px 20px
+$primary-color: #FF6060
+$second-color: #F6F6F6
+
+/* mixin pour les flêches des boutons 
+@mixin arrow-btn
+    border: none
+    background-color: $primary-color
+    transition: 300ms ease
+
+/* mixin pour le contenu du collapse 
+@mixin collapse-content
+    z-index: -1
+    position: relative
+    width: 983px 
+    margin-bottom: 30px
+    border-radius: $round-btn
+    background-color: #F6F6F6
+    color: $primary-color
+    font-size: 18px
+    transform-origin: top
+
+    
+/* Collapse div 
+.collapse
+    width: 1023px
+    
+    /* barre apparente du collapse 
+    &__head
+        display: flex
+        align-items: center
+        padding: 5px 20px 5px 15px
+        height: 52px
+        border-radius: 5px
+        background-color: $primary-color
+        font-size: 24px
+        color: #fff
+
+        /* Titre du collapse component
+        &-title
+            width: 956px
+            gap: 96%
+
+        /* boutton en flêche du collapse component 
+        &-button
+
+            /* si le state isOpen est false 
+            &-false 
+                @include arrow-btn
+                transform: rotate(0deg)
+
+            /* si le state isOpen est false 
+            &-true 
+                @include arrow-btn
+                transform: rotate(-180deg)
+
+    /* Div de content de collapse
+    &__content-open
+
+        /* Si le state isOpen est false
+        &__false
+            @include collapse-content
+            overflow: hidden
+            height: 0
+            animation: hide-content 300ms ease-out
+
+        /* Si le state isOpen est true
+        &__true
+            @include collapse-content
+            padding: $content-padding 
+            animation: show-content 300ms linear
+/* animation pour le deroulement du content de collapse
+@keyframes show-content 
+    0% 
+        transform: translateY(-50px)
+        margin-bottom: -10px
+    100%
+        transform: translateY(0)
+        margin-bottom: 30px
+
+/* animation pour le enroulement du content de collapse
+@keyframes hide-content
+    0% 
+        transform: translateY(0)
+        padding: $content-padding
+    100%
+        transform: translateY(-50px)
+        padding: $content-padding
+        margin-bottom: -5px
