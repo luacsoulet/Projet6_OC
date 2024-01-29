@@ -1,4 +1,5 @@
 import Card from '../../components/Card'
+import Banner from '../../components/Banner'
 import KasaData from '../../data/data.json'
 import '../../styles/_home.sass'
 import CliffImg from '../../assets/home-background.png'
@@ -6,10 +7,7 @@ import CliffImg from '../../assets/home-background.png'
 function Home() {
   return (
     <div className="home">
-      <div className="home__img">
-        <img src={CliffImg} alt="Falaise pour la page d'accueil" />
-        <p>Chez vous, partout et ailleurs</p>
-      </div>
+      <Banner cover={CliffImg} content={'Chez vous, partout et ailleurs'} />
       <div className="home__gallery">
         {KasaData.map((element) => (
           <Card

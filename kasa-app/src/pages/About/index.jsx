@@ -1,3 +1,4 @@
+import Banner from '../../components/Banner'
 import Collapse from '../../components/Collapse'
 import MountainImg from '../../assets/about-background.png'
 import '../../styles/_about.sass'
@@ -5,9 +6,7 @@ import '../../styles/_about.sass'
 function About() {
   return (
     <div className="about">
-      <div className="about__img">
-        <img src={MountainImg} alt="Fond de la page a propos" />
-      </div>
+      <Banner cover={MountainImg} />
       <div className="about__collapses">
         <Collapse
           title="Fiabilité"
