@@ -1,12 +1,23 @@
 import { useState } from 'react'
 import '../../styles/_collapse.sass'
 
-function Collapse({ title, content }) {
+function Collapse({ title, content, format }) {
   const [isOpen, setIsOpen] = useState(false)
+  const listeContent = Array.isArray(content) ? (
+    <ul>
+      {content.map((content, i) => (
+        <li key={`li-${i}`} className={`content-${i}`}>
+          {content}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div>{content}</div>
+  )
   return (
-    <div className="collapse">
+    <div className={`collapse ${format}`}>
       <div className="collapse__head">
-        <div className="collapse__head-title">{title}</div>
+        <div className={`collapse__head-title ${format}`}>{title}</div>
         <button
           className={`collapse__head-button-${isOpen}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -25,7 +36,9 @@ function Collapse({ title, content }) {
           </svg>
         </button>
       </div>
-      <div className={`collapse__content-open__${isOpen}`}>{content}</div>
+      <div className={`collapse__content-open__${isOpen} ${format}`}>
+        {listeContent}
+      </div>
     </div>
   )
 }
