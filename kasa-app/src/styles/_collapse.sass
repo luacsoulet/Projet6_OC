@@ -2,6 +2,8 @@ $round-btn: 0px 0px 5px 5px
 $content-padding: 16px 20px 20px
 $primary-color: #FF6060
 $second-color: #F6F6F6
+$max-width: 1023px 
+$min-width: 582px 
 
 /* mixin pour les flêches des boutons 
 @mixin arrow-btn
@@ -13,18 +15,22 @@ $second-color: #F6F6F6
 @mixin collapse-content
     z-index: -1
     position: relative
-    width: 983px 
     margin-bottom: 30px
     border-radius: $round-btn
     background-color: #F6F6F6
     color: $primary-color
     font-size: 18px
     transform-origin: top
-
+    font-weight: 400
+    ul
+        margin: 0
+        padding: 0
+        list-style-type: none
+    li:not(:last-child)
+        margin-bottom: 5px
     
-/* Collapse div 
 .collapse
-    width: 1023px
+    width: $max-width  
     
     /* barre apparente du collapse 
     &__head
@@ -39,8 +45,11 @@ $second-color: #F6F6F6
 
         /* Titre du collapse component
         &-title
-            width: 956px
-            gap: 96%
+            width: calc( $max-width - 80px )
+            // 582px
+            gap: 80%
+            &.small
+                width: calc( $min-width - 80px )
 
         /* boutton en flêche du collapse component 
         &-button
@@ -61,15 +70,23 @@ $second-color: #F6F6F6
         /* Si le state isOpen est false
         &__false
             @include collapse-content
+            width: calc( $max-width - 40px )
             overflow: hidden
             height: 0
-            animation: hide-content 300ms ease-out
-
+            animation: hide-content 300ms
+            &.small
+                width: calc( $min-width - 40px )
         /* Si le state isOpen est true
         &__true
             @include collapse-content
+            width: calc( $max-width - 40px )
             padding: $content-padding 
             animation: show-content 300ms linear
+            &.small
+                width: calc( $min-width - 40px )
+    &.small
+        width: $min-width
+
 /* animation pour le deroulement du content de collapse
 @keyframes show-content 
     0% 
