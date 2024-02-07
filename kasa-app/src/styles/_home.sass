@@ -1,3 +1,5 @@
+@import './_globaleStyle'
+
 /* Home page div */
 .home
     display: flex
@@ -5,13 +7,27 @@
     align-items: center
     justify-content: center 
     margin: 50px 0 50px
+    max-width: 1240px
+    @media ( max-width: 375px  )
+        margin: 27px 0 27px
+        min-width: 335px
+    
+    /* gallery des annonces de la page home
     &__gallery
         z-index: 1
-        display: grid
-        grid-template-columns: repeat(3, 340px)
-        padding: 56px 0 43px 50px
-        width: 1190px
+        display: flex
+        flex-wrap: wrap
+        align-content: flex-start
+        justify-content: flex-start
+        padding: 56px 43px
+        max-width: 100%
         gap: 50px 60px
         border-radius: 25px
-        background-color: #F6F6F6
+        background-color: $gallery-background
+        @media (max-width: 375px)
+            flex-direction: column
+            justify-content: center
+            background-color: $secondary-color
+            padding: 0px
+            gap: 20px
     
