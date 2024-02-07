@@ -1,40 +1,39 @@
+@import './_globaleStyle'
+
 /* Header nav */
-.nav
+.nav 
   display: flex
   justify-content: space-between
   align-items: center
-  height: 68px
-  width: 1240px
-  gap: 720px
-  margin: 45px 0 0px
-  @media (max-width: 375px) 
-    width: 335px
-    margin: 20px 0 27px
-    gap: 43px
+  margin: 45px 0 0
+  width: 100%
+  max-width: 1240px
+  @media (max-width: 375px)
+    margin: 20px 0 0
 
-    img 
-      height: 47px
+  /* Image du logo  
+  img
+    margin-right: 10px
+    @media (max-width: 375px)
+      margin-right: 43px
+      width: 145px
 
-  /* Header Div Links */
+  /* Liens du header
   &__links
     display: flex
-    gap: 27px
+    justify-content: space-between
+    width: 100%
+    max-width: 256px
     @media (max-width: 375px)
-      gap: 10px
-      
-  /* Header Link */ 
-  &__link 
-    width: 120px
-    height: auto
-    text-decoration: none
-    color: #ff6060
-    font-size: 24px
-    font-family: 'Montserrat'
-    &.active 
-      text-decoration: #ff6060 underline
-    
-    @media (max-width: 375px) 
-      width: 60px
-      font-size: 12px
+      max-width: 140px
 
-
+    /* liens 
+    .nav__link
+      text-decoration: none
+      color: $primary-color
+      font-size: 24px
+      text-align: center
+      @media (max-width: 708px)
+        font-size: 18px
+      @media (max-width: 375px) 
+        font-size: 12px
