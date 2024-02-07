@@ -3,6 +3,7 @@ import Collapse from '../../components/Collapse'
 import MountainImg from '../../assets/about-background.png'
 import '../../styles/_about.sass'
 
+/* Création de la page À propos en définissant le contenu des props des components collapse */
 function About() {
   return (
     <div className="about">
