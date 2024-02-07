@@ -1,57 +1,141 @@
+@import './_globaleStyle'
+    
+$max-width : 1240px
+
+@mixin flex-center
+    display: flex
+    align-content: center
+    
 /* lodging main div
 .lodging
+    display: flex
+    justify-content: center
+    max-width: $max-width
     /* div contentant les diverses informations
     &__infos
-        display: flex
-        align-content: center
+        @include flex-center
+        justify-content: space-between
+        max-width: $max-width
+        @media (max-width: 375px)
+            flex-direction: column
+
+        /* div d'informations à gauche
         &-left
             display: flex
             flex-direction: column
             align-content: flex-start
             justify-content: flex-start
-            width: 90%
+            max-width: 100%
+
+            /* Titre de l'annonce
             &-title
                 font-size: 36px
-                height: 51px
+                margin-bottom: 5px
+                @media (max-width: 375px)
+                    font-size: 18px
+            
+            /* Localisation de l'annonce
             &-location
                 font-size: 18px
-                height: 26px
+                @media (max-width: 375px)
+                    font-size: 14px
+
+            /* tags appartenant à l'annonce
             &-tags
                 display: flex
+                flex-wrap: wrap
                 gap: 10px
                 margin: 20px 0 24px
+                @media (max-width: 375px)
+                    margin: 10px 0 10.5px
+                
+                /* Propriétées des tags
                 & .tag
-                    display: flex
-                    align-items: center
-                    justify-items: center
+                    @include flex-center
                     padding: 3px 30px
-                    width: fit-content
+                    width: auto
                     height: 25px
+                    font-size: 14px
                     border-radius: 10px
-                    color: #FFF
-                    background-color: #FF6060
+                    color: $secondary-color
+                    background-color: $primary-color
+                    @media (max-width: 375px)
+                        height: 18px
+                        padding: 2px 30px
+                        font-size: 10px
+
+        /* div d'informations à droite
         &-right
             display: flex
             flex-direction: column
             align-content: flex-end
             justify-content: flex-start
+            max-width: 100%
+            @media (max-width: 375px)
+                flex-direction: row-reverse
+                align-content: center
+                justify-content: space-between
+                margin-bottom: 13.5px
+            
+            /* div contenant les informations de l'hôte
             &-host
-                display: flex
-                align-items: center
+                @include flex-center
                 justify-content: flex-end
                 margin-bottom: 21px
+                @media (max-width: 375px)
+                    margin: 0
+                
+                /* Nom et prénom de l'hôte
                 &-name
                     width: 93px
+                    @media (max-width: 375px)
+                        display: flex
+                        justify-content: flex-end
+                        margin-right: 10.5px
+                        font-size: 12px
+
+                /* Photo de profil de l'hôte
                 &-cover
                     img
                         height: 64px
                         width: 64px
                         border-radius: 50%
+                        @medi (max-width: 375px)
+                            height: 32px
+                            width: 32px
+
+            /* Notation sur 5 étoiles de l'annonce
             &-stars
-                display: flex
-                height: 24px
-                gap: 18px
+                @media (max-width: 375px)
+                        @include flex-center
+                        justify-content: center
+                
+                /* Container des étoiles
+                .stars-container
+                    display: flex
+                    justify-content: space-between
+                    @media( max-width: 375px )
+                        justify-content: center
+                        gap: 8px
+                        
+                        /* Propriétes des étoiles
+                        .star
+                            svg
+                                width: 36px
+                                height: 36px
+                                @media ( max-width: 375px )
+                                    height: 18px
+                                    width: 18px
+
+    /* Div des collapses
     &__collapses
         display: flex
-        gap: 76px
+        max-width: $max-width
+        gap: 7.6%
+        @media (max-width: 708px)
+            gap: 5px
+        @media (max-width: 375px)
+            flex-direction: column
+            gap: 0px
+
                     
