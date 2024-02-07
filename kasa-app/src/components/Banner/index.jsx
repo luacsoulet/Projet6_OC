@@ -1,4 +1,6 @@
 import '../../styles/_banner.sass'
+
+/* Création du composant banner en récupérant en propos l'image de cover et le texte si il y en a */
 function Banner({ cover, content }) {
   return (
     <div className="banner">
@@ -12,6 +14,7 @@ function Banner({ cover, content }) {
   )
 }
 
+/* Définition des valeurs de props par défaut */
 Banner.defaultProps = {
   cover: '',
   content: '',
