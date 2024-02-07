@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import '../../styles/_carrousel.sass'
+
+/* Création du composant Carrousel en récupérant en propos l'array d'images présentes dans l'annonce */
 function Carrousel({ pictures }) {
+  /* Initialisation d'un state servant à stocker le numéro de l'image active */
   const [activeImg, setActiveImg] = useState(0)
+
   return (
     <div className="carrousel">
       <div className="carrousel__buttons">
         <button
           className="carrousel__buttons-left"
+          /* au clic sur le bouton de gauche, on vérifie si activeImg est 0 si oui alors activeImg sera égal à la longueur de l'array d'images - 1 sinon -1 à activeImg */
           onClick={() =>
             setActiveImg(activeImg === 0 ? pictures.length - 1 : activeImg - 1)
           }
@@ -26,6 +31,7 @@ function Carrousel({ pictures }) {
         </button>
         <button
           className="carrousel__buttons-right"
+          /* au clic sur le bouton de droite, on vérifie si activeImg est égal à la longueur de l'array d'images - 1 si oui alors activeImg sera égal 0 sinon + 1 à activeImg */
           onClick={() =>
             setActiveImg(activeImg === pictures.length - 1 ? 0 : activeImg + 1)
           }
@@ -47,12 +53,14 @@ function Carrousel({ pictures }) {
       <img
         className="carrousel__img-active"
         key={`carrousel-img-${activeImg}`}
+        /* src de l'image sera prise dans le tableau pictures a la position égale à activeImg */
         src={pictures[activeImg]}
         alt=""
       />
-      <div className="carrousel__counter">{`${
-        activeImg === 0 ? 1 : activeImg + 1
-      }/${pictures.length}`}</div>
+      <div
+        /* Le compteur se met à jour en fonction du state activeImg + 1 si il n'est pas de 0 sur la longueur du tableau pictures */
+        className="carrousel__counter"
+      >{`${activeImg === 0 ? 1 : activeImg + 1}/${pictures.length}`}</div>
     </div>
   )
 }
