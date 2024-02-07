@@ -1,3 +1,5 @@
+@import './_globaleStyle'
+    
 /* Footer div */
 .footer
     position: absolute
@@ -10,11 +12,17 @@
     height: 114px
     width: 100%
     gap: 28.56px
-    background-color: #000
+    background-color: $black-color
+    @medi (max-width: 375px)
+        gap: 10px
 
     &__img
         width: 122px
         height: auto
     &__law-info
-        color: #fff
+        color: $secondary-color
         font-size: 24px
+        text-align: center
+        @media (max-width: 375px)
+            font-size: 12px
+            width: 133px
