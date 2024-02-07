@@ -1,20 +1,22 @@
+@import './_globaleStyle'
+
 $round-btn: 0px 0px 5px 5px
 $content-padding: 16px 20px 20px
-$primary-color: #FF6060
-$second-color: #F6F6F6
-$max-width: 1023px 
+$max-width: 1024px 
 $min-width: 582px 
 
 /* mixin pour les flêches des boutons 
 @mixin arrow-btn
     border: none
-    background-color: $primary-color
+    background-color: transparent
     transition: 300ms ease
 
 /* mixin pour le contenu du collapse 
 @mixin collapse-content
     z-index: -1
     position: relative
+    transform: translateY(-5px)
+    width: calc( 100% - 40px )
     margin-bottom: 30px
     border-radius: $round-btn
     background-color: #F6F6F6
@@ -22,37 +24,58 @@ $min-width: 582px
     font-size: 18px
     transform-origin: top
     font-weight: 400
+    @media (max-width: 375px)
+        width: calc( 100% - 40px )
+        font-size: 12px
+        margin-bottom: 20px
+    /* si le content est une liste alors modification de l'apparence
     ul
         margin: 0
         padding: 0
         list-style-type: none
+    /* tant que ce n'est pas le dernier élément alors appliquer ses propriétés
     li:not(:last-child)
         margin-bottom: 5px
-    
-.collapse
-    width: $max-width  
-    
+
+/* div du component collapse
+.collapse  
+    width: 100%
+    max-width: 1024px
+    @media (max-width: 375px)
+        max-width: 335px
+
     /* barre apparente du collapse 
     &__head
         display: flex
         align-items: center
+        justify-content: space-between
+        width: calc( 100% - 35px )
         padding: 5px 20px 5px 15px
         height: 52px
         border-radius: 5px
         background-color: $primary-color
         font-size: 24px
         color: #fff
-
-        /* Titre du collapse component
-        &-title
-            width: calc( $max-width - 80px )
-            // 582px
-            gap: 80%
-            &.small
-                width: calc( $min-width - 80px )
+        @media (max-width: 708px)
+            height: 26px
+            font-size: 14px
+        @media (max-width: 375px)
+            height: 10px
+            width: calc( 100% - 16px )
+            font-size: 13px
+            padding: 10px 6px 10px 10px
 
         /* boutton en flêche du collapse component 
         &-button
+
+            /* taille de la flêche
+            svg
+                @media (max-width: 375px)
+                    width: 16px
+                    height: 9.14px
+            /* si le state isOpen est null --> pas de click
+            &-null 
+                @include arrow-btn
 
             /* si le state isOpen est false 
             &-false 
@@ -62,46 +85,50 @@ $min-width: 582px
             /* si le state isOpen est false 
             &-true 
                 @include arrow-btn
-                transform: rotate(-180deg)
+                transform: rotate(-180deg) 
 
     /* Div de content de collapse
     &__content-open
 
+        &__null
+            @include collapse-content
+            overflow: hidden
+            height: 0
+
         /* Si le state isOpen est false
         &__false
             @include collapse-content
-            width: calc( $max-width - 40px )
             overflow: hidden
             height: 0
-            animation: hide-content 300ms
-            &.small
-                width: calc( $min-width - 40px )
+            animation: hide-content 300ms 
         /* Si le state isOpen est true
         &__true
             @include collapse-content
-            width: calc( $max-width - 40px )
-            padding: $content-padding 
+            padding: $content-padding
             animation: show-content 300ms linear
-            &.small
-                width: calc( $min-width - 40px )
-    &.small
-        width: $min-width
+            @media ( max-width: 375px)
+                padding: 13px 20px 19px
+                
 
 /* animation pour le deroulement du content de collapse
 @keyframes show-content 
     0% 
-        transform: translateY(-50px)
+        transform: translateY(-30px)
         margin-bottom: -10px
     100%
         transform: translateY(0)
         margin-bottom: 30px
+        @media (max-width: 375px)
+            margin-bottom: 19px
 
 /* animation pour le enroulement du content de collapse
 @keyframes hide-content
     0% 
-        transform: translateY(0)
+        transform: scaleY(1)
         padding: $content-padding
     100%
-        transform: translateY(-50px)
+        transform: scaleY(0)
         padding: $content-padding
         margin-bottom: -5px
+        @media (max-width: 375px)
+            margin-bottom: -15px
