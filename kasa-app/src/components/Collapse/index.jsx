@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import '../../styles/_collapse.sass'
 
-function Collapse({ title, content, format }) {
-  const [isOpen, setIsOpen] = useState(false)
+/* Création du composant Collapse en récupérant en props le titre de la collapse et son contenu */
+function Collapse({ title, content }) {
+  /* set du state isOpen a null pour éviter les animations au chargements de la page */
+  const [isOpen, setIsOpen] = useState(null)
+
+  /* On vas vérifier si le props content est un tableau si oui alors on vas faire une fonction map dessus pour en faire une liste sinon on vas l'afficher dans une div */
   const listeContent = Array.isArray(content) ? (
     <ul>
       {content.map((content, i) => (
@@ -15,12 +19,13 @@ function Collapse({ title, content, format }) {
     <div>{content}</div>
   )
   return (
-    <div className={`collapse ${format}`}>
+    <div className={'collapse'}>
       <div className="collapse__head">
-        <div className={`collapse__head-title ${format}`}>{title}</div>
+        <div className={'collapse__head-title'}>{title}</div>
         <button
+          /* Au clic si isOpen est égal à nul, alors on va lui attribuer true sinon on attribue l'inverse de la valeur de isOpen */
           className={`collapse__head-button-${isOpen}`}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(isOpen === null ? true : !isOpen)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,9 +41,7 @@ function Collapse({ title, content, format }) {
           </svg>
         </button>
       </div>
-      <div className={`collapse__content-open__${isOpen} ${format}`}>
-        {listeContent}
-      </div>
+      <div className={`collapse__content-open__${isOpen}`}>{listeContent}</div>
     </div>
   )
 }
