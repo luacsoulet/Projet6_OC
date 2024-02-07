@@ -1,17 +1,35 @@
+@import './_globaleStyle'
+    
+/* Banner component
 .banner
     display: flex
     align-items: center
     justify-content: center
     margin-bottom: 43px
+    width: 100%
+    max-width: 1240px
+    @media (max-width:375px)
+        margin: 0 0 22px
+    /* image of background banner
     &_img
         z-index: 1
         height: 228px
-        width: 1240px
+        width: 100%
         object-fit: cover
         border-radius: 25px
         filter: brightness(70%)
+        @media (max-width: 375px)
+            height: 111px
+            border-radius: 10px
+    /* Banner inside text 
     &_content
         z-index: 2
         position: absolute
+        text-align: center
         font-size: 48px
-        color: #FFF
+        color: $secondary-color
+        @media (max-width: 375px)
+            font-size: 24px
+            width: 217px
+            margin-right: 102px 
+            text-align: start
