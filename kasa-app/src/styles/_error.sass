@@ -1,22 +1,44 @@
+@import './_globaleStyle'
+
+$globale-gap : 139px
+
 /* Error div page */
 .error
     display: flex
     flex-direction: column
+    justify-content: center
     align-items: center
-    gap: 139px
-    margin: 139px 0 139px
-    color: #ff6060
+    width: 1240px
+    gap: $globale-gap
+    margin: $globale-gap 0
+    color: $primary-color
+    @media (max-width: 1240px)
+        width: 1000px
+    @media (max-width: 1000px)
+        width: 100%
+    @media (max-width: 375px)
+        gap: 113px
+        margin: 113px 0 113px
 
     /* Text 404 */
     &__404
         font-size: 288px
         font-weight: 700
+        @media (max-width: 708px)
+            font-size: 180px
+        @media (max-width: 375px)
+            font-size: 98px
 
     /* Text d'erreur */
     &__message
         font-size: 36px
+        text-align: center
+        @media (max-width: 375px)
+            font-size: 18px
 
     /* Lien de retour vers page Home */
     &__home-link
-        font-size: 10px
+        font-size: 18px
         text-decoration: underline
+        @media (max-width: 375px)
+            font-size: 14px
