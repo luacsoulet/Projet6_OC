@@ -1,15 +1,19 @@
-/* About img div */
-
+/* About div */
 .about
     display: flex
     flex-direction: column
-    align-items: center
-    justify-content: center
+    max-width: 1240px
     margin: 38px 0 38px
+    @media (max-width: 375px)
+        max-width: 335px
+        margin: 19px 0 19px 
+        
     /* Collapses div
     &__collapses
         display: flex
         flex-direction: column
-        align-items: center
-        justify-content: center
+        max-width: 100%
+        padding: 0 108px
+        @media (max-width: 375px)
+            padding: 0
 
