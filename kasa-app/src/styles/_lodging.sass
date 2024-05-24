@@ -4,7 +4,6 @@ $max-width : 1240px
 
 @mixin flex-center
     display: flex
-    align-content: center
     
 /* lodging main div
 .lodging
@@ -47,12 +46,13 @@ $max-width : 1240px
                 gap: 10px
                 margin: 20px 0 24px
                 @media (max-width: 375px)
-                    margin: 10px 0 10.5px
+                    margin: 10px 0 10px
                 
                 /* Propriétées des tags
                 & .tag
                     @include flex-center
-                    padding: 3px 30px
+                    align-items: center
+                    padding: 3px 20px
                     width: auto
                     height: 25px
                     font-size: 14px
@@ -61,7 +61,8 @@ $max-width : 1240px
                     background-color: $primary-color
                     @media (max-width: 375px)
                         height: 18px
-                        padding: 2px 30px
+                        padding: 0 10px
+                        border-radius: 5px
                         font-size: 10px
 
         /* div d'informations à droite
@@ -80,6 +81,7 @@ $max-width : 1240px
             /* div contenant les informations de l'hôte
             &-host
                 @include flex-center
+                align-items: center
                 justify-content: flex-end
                 margin-bottom: 21px
                 @media (max-width: 375px)
@@ -87,10 +89,11 @@ $max-width : 1240px
                 
                 /* Nom et prénom de l'hôte
                 &-name
-                    width: 93px
+                    display: flex
+                    text-align: end
+                    width: 50%
+                    margin-right: 10.5px
                     @media (max-width: 375px)
-                        display: flex
-                        justify-content: flex-end
                         margin-right: 10.5px
                         font-size: 12px
 
@@ -100,14 +103,15 @@ $max-width : 1240px
                         height: 64px
                         width: 64px
                         border-radius: 50%
-                        @medi (max-width: 375px)
-                            height: 32px
-                            width: 32px
+                        @media (max-width: 375px)
+                            height: 35px
+                            width: 35px
 
             /* Notation sur 5 étoiles de l'annonce
             &-stars
                 @media (max-width: 375px)
                         @include flex-center
+                        align-items: center
                         justify-content: center
                 
                 /* Container des étoiles
@@ -124,8 +128,8 @@ $max-width : 1240px
                                 width: 36px
                                 height: 36px
                                 @media ( max-width: 375px )
-                                    height: 18px
-                                    width: 18px
+                                    height: 15px
+                                    width: 15px
 
     /* Div des collapses
     &__collapses
