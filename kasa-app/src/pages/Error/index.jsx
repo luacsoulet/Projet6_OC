@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import '../../styles/_error.sass'
 
 function Error() {
@@ -7,7 +8,7 @@ function Error() {
       <div className="error__message">
         Oups! La page que vous demandez n'existe pas.
       </div>
-      <div className="error__home-link">Retourner sur la page d’accueil</div>
+      <NavLink className="error__home-link" to="/">Retourner sur la page d’accueil</NavLink>
     </div>
   )
 }
